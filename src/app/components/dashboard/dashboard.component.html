@@ -1,0 +1,43 @@
+<mat-card class="input-card1">
+    Stock Tracker
+</mat-card>
+<mat-card class="input-card">
+    <mat-card-header>
+        <mat-card-title> Enter the symbol of a stock (i.e AAPL, TSLA, GOOGL) </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="example-button-row">
+        <input id="stockInput" type="text"  [(ngModel)]="Input" (ngModelChange)="Input = $event.toUpperCase()" maxlength="5">        
+            <button id="trackBtn" mat-stroked-button class="button" (click)="goStock(Input)" [disabled]="!(Input.length > 0)" >Track Stock</button>        
+    </mat-card-content>
+</mat-card>
+<mat-card class="stock-card1" *ngFor="let stock of stocks; let i = index">
+    <mat-card-header>
+        <div class="col" style="color: #24384c;">
+        <mat-card-title> {{ stock.description }} </mat-card-title>
+        <mat-card-subtitle>{{ stock.symbol }}</mat-card-subtitle>
+        </div>
+        <button id="remove{stock.symbol}" (click)="RemoveStock(stock)"  mat-stroked-button class="button1">X</button>
+ 
+    </mat-card-header>
+    <div class="col3">
+        <div>
+            <mat-card-content class="example-button-row">
+                <p>Change today : {{ stock.data.d |positif }}%</p>
+                
+                <p>Current price : {{ stock.data.c | currency}}</p>
+            </mat-card-content>
+        </div>
+        <div>
+            <mat-card-content class="example-button-row">
+                <p>Opening price : {{ stock.data.o | currency}}</p>
+                <p>High price : {{ stock.data.h | currency}}</p>
+            </mat-card-content>
+        </div>
+        <h1 *ngIf="stock.data.d >= 0, else elseBlock" style="color:rgb(16, 206, 16); font-size: 60px;">🡽</h1>
+        <ng-template #elseBlock>
+            <h1 style="color:red;font-size: 60px;">🢆</h1>
+        </ng-template>
+    </div>
+        <button id="sentiment{stock.symbol}"  (click)="SentimentStock(stock.symbol)" mat-stroked-button class="button2" style="color: aqua;" > See sentiment details 
+        </button>
+</mat-card>

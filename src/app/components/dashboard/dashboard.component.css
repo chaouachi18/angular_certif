@@ -1,0 +1,72 @@
+.input-card {
+    margin:  auto;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    height: 200px;
+    text-align: center;
+    font-size: 35px;
+    background-color: #24384c;  /* Couleur de fond */
+    color: aqua;
+  }
+  .input-card1 {
+    background-color: #24384c;  /* Couleur de fond */
+    border-radius: 0 0 50px 50px;  /* Arrondis les bords de la toolbar */
+    box-shadow: 0 0 5px #000000;  /* Affiche une ombre */
+    margin: auto;  /* Centre la toolbar */
+    width: 98%;
+    text-align: center;
+    color: aqua;
+    height: 70px;
+    font-size: 50px;
+   
+}
+
+.button{
+    
+    margin-left: 10%;
+   
+    background-color: #ffffff;  /* Couleur de fond */
+    color: #702929da;
+}
+  
+.button1{
+    
+  margin-left: 70%;
+  font-size: 20px;
+  background-color: #f30000;  /* Couleur de fond */
+}
+.button2{
+  color: aqua;  
+  background-color: #24384c; 
+  font-size: 20px;
+}
+  .col3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 0px;
+  }
+  
+  .stock-card {
+    margin: 0 auto;
+    width: 50%;
+    margin-bottom: 8px;
+  }
+  .stock-card1 {
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #a3d2d9bf;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    margin-right: 10px;
+    margin-top: 3%;
+    
+  }
+  .col {
+    width: 50%;
+    font-size: 22px;
+  }
+  

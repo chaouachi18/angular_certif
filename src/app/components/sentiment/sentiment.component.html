@@ -1,0 +1,49 @@
+<mat-card class="input-card1">
+    <mat-card-header>
+        <mat-card-title> {{ this.description }} </mat-card-title>
+        <mat-card-subtitle style="color:white">{{ this.id }}</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+<mat-card class="input-card">
+    
+    <div class="col3"*ngIf="this.sentiments" >
+        <div *ngFor="let mois of List_mois; index as i;">
+            <div class="col3">
+                <div>
+                    <h1 class="mon-element">{{mois | mois}}</h1>
+                    <div *ngFor="let sentiment of sentiments ">
+                        <div class="col3" *ngIf="sentiment.month == mois ">
+                            <div>
+                                <p class="mon-element">
+                                    <span class="nom-de-champ">Change : &nbsp; </span>
+                                    <span>{{sentiment.change}}</span>
+                                </p>
+                                <p class="mon-element">
+                                    <span class="nom-de-champ">MSPR : &nbsp;</span>
+                                    <span>{{sentiment.mspr | number}}</span>
+                                </p>
+                            </div>
+                            <div style="margin-left: 80%;">
+                                <h1 *ngIf="sentiment.change >= 0, else elseBlock"
+                                    style="color:rgb(37, 226, 12);font-size: 60px; ">🡽</h1>
+                                <ng-template #elseBlock>
+                                    <h1 style="color:red;font-size: 60px;">🢆</h1>
+                                </ng-template>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</mat-card>
+<mat-card-actions>
+    <button id="backBtn" (click)="goBack()" mat-stroked-button class="button1" style="color:rgb(252, 252, 252);">
+        🢠 Back to list of stocks</button>
+</mat-card-actions>
